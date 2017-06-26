@@ -1,0 +1,1 @@
+fiweb: vendor/bin/heroku-php-apache2 public
