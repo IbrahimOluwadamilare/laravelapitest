@@ -32,6 +32,6 @@ class User extends Authenticatable
             $this->api_token = str_random(60);
         }
 
-        return parent::save($options);
+        return parent::save($option);
     }
 }
