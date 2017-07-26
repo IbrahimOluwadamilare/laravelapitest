@@ -16,9 +16,9 @@ class FlightController extends Controller
     protected $flights;
     public function __construct(FlightService $service){
         $this->flights =$service;
+
+        $this->middleware('auth:api',['only'=>['store','update','destroy']]);
     }
-
-
     public function index()
     {
         //call service
@@ -50,6 +50,8 @@ class FlightController extends Controller
         //$arrivalDateTime = $request ->input('arrival.datetime');
 
         //return $arrivalDateTime;
+
+        $this ->flights->validate($request->all());
         try{
 
         $flight =  $this->flights->createFlight($request);
@@ -95,6 +97,7 @@ class FlightController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**
